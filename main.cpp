@@ -2,6 +2,17 @@
 
 const char kWindowTitle[] = "LC1B_03_オイカワユウマ";
 
+typedef struct Vector2 {
+	float x;
+	float y;
+};
+
+typedef struct Car {
+	Vector2 pos;
+	Vector2 size;
+	Vector2 velocoty;
+	Vector2 aceel;
+};
 // Windowsアプリでのエントリーポイント(main関数)
 int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
@@ -11,6 +22,28 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	// キー入力結果を受け取る箱
 	char keys[256] = {0};
 	char preKeys[256] = {0};
+
+	Car normal;
+	normal.pos = { 50,100 };
+	normal.size = { 50,50 };
+	normal.velocoty = { 10,10 };
+
+	Car eaz;
+	eaz.pos = { 50,100 };
+	eaz.size = { 50,50 };
+	eaz.velocoty = { 10,10 };
+
+	Car eazOut;
+	eazOut.pos = { 50,100 };
+	eazOut.size = { 50,50 };
+	eazOut.velocoty = { 10,10 };
+
+	Car eazIn;
+	eazIn.pos = { 50,100 };
+	eazIn.size = { 50,50 };
+	eazIn.velocoty = { 10,10 };
+
+
 
 	// ウィンドウの×ボタンが押されるまでループ
 	while (Novice::ProcessMessage() == 0) {
@@ -24,7 +57,10 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		///
 		/// ↓更新処理ここから
 		///
-
+		normal.pos.x += normal.velocoty.x;
+		if (normal.pos.x>= 1230) {
+			normal.pos.x = 1230.0f;
+		}
 		///
 		/// ↑更新処理ここまで
 		///
@@ -32,7 +68,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		///
 		/// ↓描画処理ここから
 		///
-
+		Novice::DrawEllipse(normal.pos.x, normal.pos.y, normal.size.x, normal.size.y, 0.0f, RED, kFillModeSolid);
 		///
 		/// ↑描画処理ここまで
 		///
