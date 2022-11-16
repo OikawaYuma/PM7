@@ -29,17 +29,17 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	normal.velocoty = { 10,10 };
 
 	Car eaz;
-	eaz.pos = { 50,100 };
+	eaz.pos = { 50,250 };
 	eaz.size = { 50,50 };
 	eaz.velocoty = { 10,10 };
 
 	Car eazOut;
-	eazOut.pos = { 50,100 };
+	eazOut.pos = { 50,400 };
 	eazOut.size = { 50,50 };
 	eazOut.velocoty = { 10,10 };
 
 	Car eazIn;
-	eazIn.pos = { 50,100 };
+	eazIn.pos = { 50,550 };
 	eazIn.size = { 50,50 };
 	eazIn.velocoty = { 10,10 };
 
@@ -69,6 +69,33 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		/// ↓描画処理ここから
 		///
 		Novice::DrawEllipse(normal.pos.x, normal.pos.y, normal.size.x, normal.size.y, 0.0f, RED, kFillModeSolid);
+
+		Novice::DrawEllipse(
+			eaz.pos.x,
+			eaz.pos.y,
+			eaz.size.x,
+			eaz.size.y,
+			0.0f,
+			RED,
+			kFillModeSolid);
+
+		Novice::DrawEllipse(
+			eazOut.pos.x,
+			eazOut.pos.y,
+			eazOut.size.x,
+			eazOut.size.y,
+			0.0f,
+			RED,
+			kFillModeSolid);
+
+		Novice::DrawEllipse(
+			eazIn.pos.x,
+			eazIn.pos.y,
+			eazIn.size.x,
+			eazIn.size.y,
+			0.0f,
+			RED,
+			kFillModeSolid);
 		///
 		/// ↑描画処理ここまで
 		///
